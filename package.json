@@ -1,0 +1,21 @@
+{
+  "name": "buissonbb-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "serve": "ts-node src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@feathersjs/configuration": "^4.5.11",
+    "@feathersjs/feathers": "^4.5.11",
+    "@feathersjs/socketio": "^4.5.11",
+    "feathers-knex": "^8.0.1",
+    "knex": "^0.95.11",
+    "pg": "^8.7.1"
+  }
+}
