@@ -1,10 +1,10 @@
 
-const feathers = require('@feathersjs/feathers')
-const configuration = require('@feathersjs/configuration')
+import feathers from '@feathersjs/feathers';
+import configuration from '@feathersjs/configuration';
 
-const knex = require('../knex')
+import knex from '../knex';
 
-const createItemsTable = require('../services/database/items/items.model')
+import createItemsTable from '../services/database/items/items.model';
 
 
 async function main() {

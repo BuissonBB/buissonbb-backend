@@ -18,6 +18,9 @@ app.on('connection', connection => app.channel('everybody').join(connection));
 // Publish all realtime events to the `everybody` channel
 app.publish(() => app.channel('everybody'));
 
+console.log("configuration");
+console.dir(configuration()());
+
 app.configure(configuration());
 
 app.configure(knex);
