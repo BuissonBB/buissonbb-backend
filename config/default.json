@@ -1,6 +1,6 @@
 {
    "dbConfig": {
       "client": "pg",
-      "connection": "postgres://postgres:admin@localhost:5432/fs-feathers-items"
+      "connection": "postgres://postgres:admin@localhost:5432/postgres"
    }
 }
