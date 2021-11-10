@@ -6,6 +6,8 @@ import '@feathersjs/transport-commons';
 
 import knex from './knex';
 
+const PORT = process.env.PORT || 3030;
+
 // Create a Feathers application
 const app = feathers();
 
@@ -28,5 +30,6 @@ app.configure(knex);
 app.configure(services);
 
 // Start the server on port 3030
-app.listen(3030);
-console.log('listening on port 3030');
+//@ts-ignore
+app.listen(PORT);
+console.log('listening on port '+PORT);
