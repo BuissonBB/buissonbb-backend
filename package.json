@@ -17,6 +17,7 @@
     "@feathersjs/socketio": "^4.5.11",
     "feathers-knex": "^8.0.1",
     "knex": "^0.95.11",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "ts-node": "^10.4.0"
   }
 }
