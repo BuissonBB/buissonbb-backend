@@ -1,6 +1,6 @@
 {
     "dbConfig": {
         "client": "pg",
-        "connection": "POSTGRES_URL_ENCODED"
+        "connection": "DATABASE_URL"
     }
 }
