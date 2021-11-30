@@ -1,9 +1,8 @@
 // database
 import feathers from '@feathersjs/feathers';
-import itemsService from './database/items/items.service';
-import messagesService from './database/messages/messages.service';
-import chatsService from './database/chats/chats.service';
+import postsService from './database/posts/posts.service';
 import usersService from './database/users/users.service';
+import topicsTable from './database/topics/topics.service';
 
 // custom
 // ...
@@ -11,10 +10,9 @@ import usersService from './database/users/users.service';
 export default function(app: feathers.Application<any>) {
 
    // database
-   app.configure(itemsService)
-   app.configure(messagesService)
-   app.configure(chatsService)
+   app.configure(postsService)
    app.configure(usersService)
+   app.configure(topicsTable)
 
    // custom
    // ...

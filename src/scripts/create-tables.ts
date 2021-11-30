@@ -4,10 +4,10 @@ import configuration from '@feathersjs/configuration';
 
 import knex from '../knex';
 
-import createItemsTable from '../services/database/items/items.model';
 import createUsersTable from '../services/database/users/users.model';
-import createChatsTable from '../services/database/chats/chats.model';
-import createMessagesTable from '../services/database/messages/messages.model';
+import createPostsTable from '../services/database/posts/posts.model';
+import createTopicsTable from '../services/database/topics/topics.model';
+import { Knex } from 'knex';
 
 
 async function main() {
@@ -16,11 +16,17 @@ async function main() {
    app.configure(configuration())
    app.configure(knex)
 
+
+   const db: Knex = app.get('knexClient');
+
+   await db.raw(`DROP TABLE IF EXISTS users CASCADE;
+   DROP TABLE IF EXISTS posts CASCADE;
+   DROP TABLE IF EXISTS topics CASCADE;`);
+
    // database
-   await createItemsTable(app, "items")
-   await createChatsTable(app, "chats")
    await createUsersTable(app, "users")
-   await createMessagesTable(app, "messages")
+   await createTopicsTable(app, "topics")
+   await createPostsTable(app, "posts")
 
    process.exit(0)
 }

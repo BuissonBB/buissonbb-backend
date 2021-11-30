@@ -8,10 +8,13 @@
                 "color": "#27AE60",
                 "categories": [
                     {
+                        "id": 0,
                         "name": "Minecraft",
+                        "description": "Cette catégorie est destinée à toutes les conversations relatives au jeu Minecraft. Soyez libre d’ouvrir un nouveau topic afin de partager avec les autres membres sur un sujet qui vous intéresse.",
                         "icon": "/assets/pickaxe.png"
                     },
                     {
+                        "id": 1,
                         "name": "Pokémon",
                         "icon": "/assets/pokeball.png"
                     }
@@ -23,10 +26,12 @@
                 "color": "#BB6BD9",
                 "categories": [
                     {
+                        "id": 2,
                         "name": "Java",
                         "icon": "/assets/java.png"
                     },
                     {
+                        "id": 3,
                         "name": "C++",
                         "icon": "/assets/cpp.png"
                     }
