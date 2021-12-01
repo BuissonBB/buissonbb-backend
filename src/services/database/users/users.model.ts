@@ -9,6 +9,7 @@ export default async function(app: feathers.Application<any>, tableName: string)
 
         await db.schema.createTable(tableName, table => {
             table.increments('id');
+            table.boolean("admin");
             table.text('picture');
             table.text('username').notNullable();
             table.text('email').notNullable();

@@ -11,15 +11,20 @@ export default async function(app: feathers.Application<any>, tableName: string)
             table.increments('id');
             table.timestamp('created_date').defaultTo(db.fn.now());
             table.timestamp('modified_date').defaultTo(db.fn.now());
+
             table.text('subject').notNullable();
-            table.integer('category');
-            table.integer('author').references('id').inTable('users').onDelete('SET NULL');
+            table.integer('categoryId');
+
+            table.integer('authorId')
+                .references('id')
+                .inTable('users')
+                .onDelete('SET NULL');
         })
 
         await db.table(tableName).insert({
             subject: 'Test topic',
-            category: 0,
-            author: 1
+            categoryId: 0,
+            authorId: 1
         });
 
         console.log(`Created ${tableName} table`)
