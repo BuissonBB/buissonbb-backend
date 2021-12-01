@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/scripts/create-tables.ts && ts-node src/app.ts",
+    "start": "ts-node src/app.ts",
     "serve": "ts-node src/app.ts",
+    "heroku-postbuild": "ts-node src/scripts/create-tables.ts",
     "create-tables": "ts-node src/scripts/create-tables.ts"
   },
   "keywords": [],
