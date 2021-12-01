@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node src/app.ts",
     "serve": "ts-node src/app.ts",
+    "heroku-postbuild": "ts-node src/scripts/create-tables.ts",
     "create-tables": "ts-node src/scripts/create-tables.ts"
   },
   "keywords": [],
