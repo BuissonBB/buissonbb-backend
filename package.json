@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node src/app.ts",
     "serve": "ts-node src/app.ts",
+    "heroku-postbuild": "ts-node src/scripts/create-tables.ts",
     "create-tables": "ts-node src/scripts/create-tables.ts"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@feathersjs/configuration": "^4.5.11",
+    "@feathersjs/express": "^4.5.11",
     "@feathersjs/feathers": "^4.5.11",
     "@feathersjs/socketio": "^4.5.11",
     "feathers-knex": "^8.0.1",

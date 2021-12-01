@@ -3,7 +3,7 @@ import service from 'feathers-knex';
 
 export default function(app: feathers.Application<any>) {
     const db = app.get('knexClient')
-    let name = 'messages'
+    let name = 'posts'
 
     app.use(name, service({
         Model: db,
