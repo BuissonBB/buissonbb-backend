@@ -3,27 +3,29 @@
 import feathers from "@feathersjs/feathers";
 import { Knex } from "knex";
 
-export default async function(app: feathers.Application<any>, tableName: string) {
-    try {
-        const db: Knex = app.get('knexClient');
+export default function (app: feathers.Application<any>): Knex {
+    const db: Knex = app.get('knexClient');
+    const tableName = 'users';
 
-        await db.schema.createTable(tableName, table => {
-            table.increments('id');
-            table.boolean("admin");
-            table.text('picture');
-            table.text('username').notNullable();
-            table.text('email').notNullable();
-            table.text('password').notNullable();
-        })
+    db.schema.hasTable(tableName).then(async exists => {
+        if (!exists) {
+            await db.schema.createTable(tableName, table => {
+                table.increments('id');
+                table.boolean("admin");
+                table.text('picture');
+                table.string('username').unique().notNullable();
+                table.string('email').notNullable();
+                table.string('password').notNullable();
+            });
 
-        await db.table(tableName).insert({
-            username: 'admin',
-            email: 'admin@admin.fr',
-            password: 'admin'
-        });
+            await db.table(tableName).insert({
+                username: 'admin',
+                email: 'admin@admin.fr',
+                password: 'admin',
+                admin: true
+            });
+        }
+    });
 
-        console.log(`Created ${tableName} table`)
-    } catch(err: any) {
-        console.log(`Error creating ${tableName} table: ${err.toString()}`);
-    }
-}
+    return db;
+};
