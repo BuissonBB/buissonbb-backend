@@ -18,8 +18,8 @@ export default async function (app: feathers.Application<any>) {
 
     await db.table(tableName).insert({
         username: 'admin',
-        email: 'admin@admin.fr',
-        password: 'admin',
+        email: 'admin@gmail.com',
+        password: '$2a$10$JB90tK3l2cOiIdle90Tso.CiruEO4Av6StOJ4i/c6yuGKr/tEVyiy',
         admin: true
     });
 
