@@ -11,10 +11,10 @@ import { Knex } from 'knex';
 
 
 async function main() {
-   const app = feathers()
+   const app = feathers();
 
-   app.configure(configuration())
-   app.configure(knex)
+   app.configure(configuration());
+   app.configure(knex);
 
 
    const db: Knex = app.get('knexClient');
@@ -24,11 +24,11 @@ async function main() {
    DROP TABLE IF EXISTS topics CASCADE;`);
 
    // database
-   await createUsersTable(app, "users")
-   await createTopicsTable(app, "topics")
-   await createPostsTable(app, "posts")
+   await createUsersTable(app);
+   await createTopicsTable(app, "topics");
+   await createPostsTable(app, "posts");
 
-   process.exit(0)
+   process.exit(0);
 }
 
-main()
+main();
