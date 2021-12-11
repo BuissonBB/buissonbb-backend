@@ -3,29 +3,25 @@
 import feathers from "@feathersjs/feathers";
 import { Knex } from "knex";
 
-export default function (app: feathers.Application<any>): Knex {
+export default async function (app: feathers.Application<any>) {
     const db: Knex = app.get('knexClient');
     const tableName = 'users';
 
-    db.schema.hasTable(tableName).then(async exists => {
-        if (!exists) {
-            await db.schema.createTable(tableName, table => {
-                table.increments('id');
-                table.boolean("admin");
-                table.text('picture');
-                table.string('username').unique().notNullable();
-                table.string('email').notNullable();
-                table.string('password').notNullable();
-            });
-
-            await db.table(tableName).insert({
-                username: 'admin',
-                email: 'admin@admin.fr',
-                password: 'admin',
-                admin: true
-            });
-        }
+    await db.schema.createTable(tableName, table => {
+        table.increments('id');
+        table.boolean("admin").defaultTo(false);
+        table.text('picture');
+        table.string('username').unique().notNullable();
+        table.string('email').unique().notNullable();
+        table.string('password').notNullable();
     });
 
-    return db;
+    await db.table(tableName).insert({
+        username: 'admin',
+        email: 'admin@admin.fr',
+        password: 'admin',
+        admin: true
+    });
+
+    console.log("Created " + tableName + " table");
 };

@@ -20,7 +20,6 @@ export default class Users extends Service<UserData> {
     }
 
     create(data: any, params: Params) {
-        console.log("create");
         // This is the information we want from the user signup data
         const { username, email, password } = data;
         

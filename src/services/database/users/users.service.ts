@@ -1,11 +1,14 @@
 import feathers from "@feathersjs/feathers";
+import { Knex } from "knex";
 import Users from "./users.class";
 import hooks from './users.hooks';
-import createModel from './users.model';
 
 export default function (app: feathers.Application<any>) {
+    const db: Knex = app.get('knexClient') as Knex;
+    db.table("users");
+
     const options = {
-        Model: createModel(app),
+        Model: db,
         name: 'users',
     };
 
