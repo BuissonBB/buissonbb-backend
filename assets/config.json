@@ -35,6 +35,11 @@
                         "id": 3,
                         "name": "C++",
                         "icon": "/assets/cpp.png"
+                    },
+                    {
+                        "id": 4,
+                        "name": "VueJS",
+                        "icon": "/assets/vue.png"
                     }
                 ]
             }
